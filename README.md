@@ -29,7 +29,7 @@ Submit your project by sending a link to your repo (or a gzip/zip file containin
 
 
 ## MVP user stories
-1. Users can add GitHub repos they want to keep track of. App keeps track of added repos (e.g. using LocalStorage/IndexedDB) until application data is cleared.   No need for a formal user or authentication concept at this point.
+1. Users can add GitHub repos they want to keep track of. Index keeps track of added repos (e.g. using LocalStorage/IndexedDB) until application data is cleared.   No need for a formal user or authentication concept at this point.
 2. Users can see the last release date associated with each repo.
 3. Users can mark a release as seen (for example, this can be done in the sample UI below by opening the details view associated with each repo)
 4. There is a visual indicator for repositories with new releases since they were last marked as seen.
