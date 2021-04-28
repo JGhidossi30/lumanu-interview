@@ -15,7 +15,6 @@ octokit.request('GET /repos/{owner}/{repo}/releases', {
 );
 
 function App() {
-
   return (
     <div className="App">
       <header className="App-header">

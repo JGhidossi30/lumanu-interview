@@ -1,72 +1,62 @@
-# GitHub Release Monitor
+#Lumanu “Onsite” Home Coding Exercise
 
-A tool to keep track of releases made by GitHub repos.   This repository contains an example setup that can be used to create an app.
+##Problem statement
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+All of us use a wide variety of open source libraries and projects, but oftentimes it can be hard to keep up with new releases. We want to build a simple tool using the [GitHub API](https://docs.github.com/en/rest/reference/repos) that allows us to keep track of the most recent date/version associated with various repos.
 
-## Available Scripts
+The output should be a web app client. No backend server is required; you can use LocalStorage (or IndexedDB) or any other libraries for storing data.
 
-In the project directory, you can run:
+You can clone [our starter kit (TypeScript / React)](https://github.com/lumanu/gh-release-monitor) at or create your own project from scratch using any language / framework / libraries you desire.
 
-### `npm start`
+Submit your project by sending a link to your repo (or a gzip/zip file containing your entire project) with instructions on how to run it to [engineering@lumanu.com](mailto:engineering@lumanu.com).
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##This exercise is intended to
+**1. Make a basic assessment of your ability to build modern web apps**
+- *Take as much time as you need, but don't feel like you need to spend more than a few hours*
+- *Pull in any third party libraries you might need*
+- Look up any documentation that you need
+- If you have time, try to tackle one or more of the extended user stories, but they are optional
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**2. Be somewhat close to a real workflow that you would encounter working at Lumanu (or any other startup)**
+- The exercise is intentionally open ended
+- Try to address all the MVP (minimal viable product) user stories, but if you get stuck, it’s ok to submit a partially working prototype that only addresses some of them
+- Ask for help if you need clarification or hints if you get stuck
 
-### `npm test`
+**3. Allow you an opportunity to showcase your personal flair and skills beyond the basics**
+- Everything in the spec beyond the MVP user stories (including UI) can be customized by you
+- Use our initial starter kit or don't
+- Feel free to be creative in addressing the user stories
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+##MVP user stories
+1. Users can add GitHub repos they want to keep track of. App keeps track of added repos (e.g. using LocalStorage/IndexedDB) until application data is cleared.   No need for a formal user or authentication concept at this point.
+2. Users can see the last release date associated with each repo.
+3. Users can mark a release as seen (for example, this can be done in the sample UI below by opening the details view associated with each repo)
+4. There is a visual indicator for repositories with new releases since they were last marked as seen.
+5. There is a way to reload release data for all repos (e.g. by refreshing the app)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##Example UI
+Here is one example wireframe sketch of a (probably poor) UI.  Feel free to be creative and come up with your own UI.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![alt text](src/assets/img/example-ui.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##Some optional things to consider beyond MVP user stories if you have time
 
-### `npm run eject`
+1. Release notes / other data that we might want to present in a details view.
+2. Should this app work on mobile web?
+3. When to load/update data and what loading states should be there.
+4. Filter (or sort) repo list so as to easily see repos with new releases since we've last seen them
+5. Other ways to categorize / search / filter repositories
+6. Additional personal metadata associated with each repo.   E.g. the ability to mark a release as something to revisit / to updates in other projects.
+7. Some projects don't use GitHub releases.   Maybe we can use commit activity as a second data point?
+8. Desktop / mobile notifications
+9. How would you build a real server for this / turn this into a service that would store data beyond the local browser?
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+##Resources
+These resources may (or may not) be useful:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [Octokit libraries for working with the GiHub API](https://developer.github.com/v3/libraries/)
+- [GitHub releases API](https://docs.github.com/en/free-pro-team@latest/graphql/reference/objects#release)
+- [GitHub search API](https://docs.github.com/en/rest/reference/search)
+- [LocalStorage (MDN documentation)](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+- [IndexedDB (MDN documentation)](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
