@@ -1,6 +1,6 @@
-#Lumanu “Onsite” Home Coding Exercise
+# Lumanu “Onsite” Home Coding Exercise
 
-##Problem statement
+## Problem statement
 
 All of us use a wide variety of open source libraries and projects, but oftentimes it can be hard to keep up with new releases. We want to build a simple tool using the [GitHub API](https://docs.github.com/en/rest/reference/repos) that allows us to keep track of the most recent date/version associated with various repos.
 
@@ -10,7 +10,7 @@ You can clone [our starter kit (TypeScript / React)](https://github.com/lumanu/g
 
 Submit your project by sending a link to your repo (or a gzip/zip file containing your entire project) with instructions on how to run it to [engineering@lumanu.com](mailto:engineering@lumanu.com).
 
-##This exercise is intended to
+## This exercise is intended to
 **1. Make a basic assessment of your ability to build modern web apps**
 - *Take as much time as you need, but don't feel like you need to spend more than a few hours*
 - *Pull in any third party libraries you might need*
@@ -28,19 +28,19 @@ Submit your project by sending a link to your repo (or a gzip/zip file containin
 - Feel free to be creative in addressing the user stories
 
 
-##MVP user stories
+## MVP user stories
 1. Users can add GitHub repos they want to keep track of. App keeps track of added repos (e.g. using LocalStorage/IndexedDB) until application data is cleared.   No need for a formal user or authentication concept at this point.
 2. Users can see the last release date associated with each repo.
 3. Users can mark a release as seen (for example, this can be done in the sample UI below by opening the details view associated with each repo)
 4. There is a visual indicator for repositories with new releases since they were last marked as seen.
 5. There is a way to reload release data for all repos (e.g. by refreshing the app)
 
-##Example UI
+## Example UI
 Here is one example wireframe sketch of a (probably poor) UI.  Feel free to be creative and come up with your own UI.
 
 ![alt text](src/assets/img/example-ui.png)
 
-##Some optional things to consider beyond MVP user stories if you have time
+## Some optional things to consider beyond MVP user stories if you have time
 
 1. Release notes / other data that we might want to present in a details view.
 2. Should this app work on mobile web?
@@ -52,7 +52,7 @@ Here is one example wireframe sketch of a (probably poor) UI.  Feel free to be c
 8. Desktop / mobile notifications
 9. How would you build a real server for this / turn this into a service that would store data beyond the local browser?
 
-##Resources
+## Resources
 These resources may (or may not) be useful:
 
 - [Octokit libraries for working with the GiHub API](https://developer.github.com/v3/libraries/)
