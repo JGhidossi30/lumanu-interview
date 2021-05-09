@@ -1,0 +1,34 @@
+.repo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  &:hover {
+    background: #EEEEEE;
+    border-radius: 10px;
+  }
+
+  &:focus {
+    background: #000;
+  }
+
+  .title {
+    font-weight: 300;
+
+    &:hover {
+      background: #036cc8;
+    }
+  }
+}
+
+.close {
+  width: 15px;
+  height: 15px;
+
+  &:hover {
+    path {
+      fill: #c20000;
+    }
+  }
+}

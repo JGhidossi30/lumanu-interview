@@ -1,14 +1,19 @@
+import {createBrowserHistory} from 'history';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/styles/index.css';
-import App from './views/App';
+import {Provider} from "react-redux";
+import './assets/styles/index.scss';
+import App from './components/views/App';
 import * as serviceWorker from './serviceWorker';
+import {configureStore} from './store/configure-store';
 
+const history = createBrowserHistory();
+const store = configureStore(history);
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
