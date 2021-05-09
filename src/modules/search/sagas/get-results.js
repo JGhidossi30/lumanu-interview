@@ -4,7 +4,7 @@ import {getResultsFail, getResultsStart, getResultsSuccess} from '../actions/get
 import types from '../types';
 
 export const httpCall = ({query}) => {
-    const octokit = new Octokit({auth: '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'});
+    const octokit = new Octokit({auth: process.env.AUTHORIZATION});
     return octokit.request('GET /search/repositories', {
         q: query,
         per_page: 20,

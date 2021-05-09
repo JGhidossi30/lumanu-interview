@@ -4,7 +4,6 @@ import Search from '../../library/Search';
 
 const App = ({releaseNotes, removeRepo, repos}) => (
     <div className="app-container">
-        {console.log(process.env.AUTHORIZATION)}
         <div className="content-container">
             <Search/>
             <div className="scroll">
