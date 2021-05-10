@@ -1,6 +1,5 @@
 import React from 'react';
 import {ReactComponent as Refresh} from '../../../assets/img/refresh.svg';
-import Loader from '../../library/Loader';
 import Repo from '../../library/Repo';
 import Search from '../../library/Search';
 
@@ -30,13 +29,9 @@ const App = ({refreshPage, releaseNotes, releaseLoading, removeRepo, repos}) => 
                 <h1 className="gradient">
                     Release Notes
                 </h1>
-                {releaseLoading ?
-                    <Loader/>
-                    :
-                    <div className="scroll">
-                        {releaseNotes}
-                    </div>
-                }
+                <div className="scroll">
+                    {releaseNotes}
+                </div>
             </div>
         </div>
     );
