@@ -7,7 +7,8 @@ import Search from '../../library/Search';
 const App = ({refreshingPage, refreshPage, releaseNotes, removeRepo, repos}) => {
     useEffect(() => {
         refreshPage(repos)
-    }, [])
+    }, []);
+    
     return (
         <div className="app-container">
             <div className="content-container">
