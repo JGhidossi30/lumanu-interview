@@ -6,6 +6,7 @@ import {refreshPage} from '../../../modules/search/actions/refresh-page';
 import AppComponent from './component';
 
 const mapStateToProps = ({search}) => ({
+    refreshingPage: search.loaders.refreshingPage,
     releaseNotes: search.releaseNotes,
     releaseLoading: search.loaders.releaseLoading,
     repos: search.repos,
