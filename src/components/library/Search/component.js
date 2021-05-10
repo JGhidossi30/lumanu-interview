@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import onClickOutside from 'react-onclickoutside'
 import Loader from '../Loader';
 
-function Search({addRepo, isLoading, results, setQuery, query}) {
+function Search({addRepo, isLoading, repos, results, getResults, setQuery, query}) {
     const [focused, setFocused] = useState(false);
     Search.handleClickOutside = () => setFocused(false);
     const onSelect = (repo) => {
@@ -16,13 +16,22 @@ function Search({addRepo, isLoading, results, setQuery, query}) {
                 placeholder={"Find a Repository"}
                 onChange={(e) => setQuery(e.target.value)}
                 onFocus={() => setFocused(true)}
+                onKeyPress={(e) => e.key === 'Enter' && getResults(query)}
             />
-            {focused && query !== '' &&
+            <button
+                className="search-button"
+                onClick={() => getResults(query)}
+            >
+                search
+            </button>
+            {focused && (isLoading || results.length !== 0) &&
             <div className="dropdown">
                 {isLoading ?
                     <Loader/>
                     :
-                    results.map((result) =>
+                    results.filter(function (result) {
+                        return !repos.includes(result);
+                    }).map((result) =>
                         <div
                             className="option"
                             key={result.id}
@@ -31,6 +40,7 @@ function Search({addRepo, isLoading, results, setQuery, query}) {
                             {result.name}
                         </div>
                     )
+
                 }
             </div>
             }

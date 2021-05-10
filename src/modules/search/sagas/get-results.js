@@ -26,5 +26,5 @@ function* getResults({query}) {
 }
 
 export default function* getResultsSaga() {
-    yield takeLatest(types.SET_QUERY, getResults);
+    yield takeLatest(types.GET_RESULTS, getResults);
 }

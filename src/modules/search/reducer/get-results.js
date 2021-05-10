@@ -8,14 +8,19 @@ export const getResultsStart = (state) => ({
     },
 });
 
-export const getResultsSuccess = (state, {results}) => ({
-    ...state,
-    loaders: {
-        ...state.loaders,
-        queryLoading: false,
-    },
-    results,
-});
+export const getResultsSuccess = (state, {results}) => {
+    const newResults = results.filter((result) => {
+        return !state.repos.some((repo) => repo.id === result.id);
+    });
+    return ({
+        ...state,
+        loaders: {
+            ...state.loaders,
+            queryLoading: false,
+        },
+        results: newResults,
+    });
+}
 
 export const getResultsFail = (state, {error}) => ({
     ...state,
@@ -23,11 +28,12 @@ export const getResultsFail = (state, {error}) => ({
         ...state.loaders,
         queryLoading: false,
     },
+    results: [],
     error,
 });
 
 export default {
-    [types.SET_QUERY_START]: getResultsStart,
-    [types.SET_QUERY_SUCCESS]: getResultsSuccess,
-    [types.SET_QUERY_FAIL]: getResultsFail,
+    [types.GET_RESULTS_START]: getResultsStart,
+    [types.GET_RESULTS_SUCCESS]: getResultsSuccess,
+    [types.GET_RESULTS_FAIL]: getResultsFail,
 };

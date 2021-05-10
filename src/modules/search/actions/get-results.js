@@ -1,15 +1,19 @@
 import types from '../types';
 
 export const getResultsStart = () => ({
-    type: types.SET_QUERY_START,
+    type: types.GET_RESULTS_START,
 });
 
+export const getResults = (query) => ({
+    type: types.GET_RESULTS,
+    query
+});
 export const getResultsSuccess = (results) => ({
-    type: types.SET_QUERY_SUCCESS,
+    type: types.GET_RESULTS_SUCCESS,
     results,
 });
 
 export const getResultsFail = (error) => ({
-    type: types.SET_QUERY_FAIL,
+    type: types.GET_RESULTS_FAIL,
     error,
 });

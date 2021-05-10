@@ -12,10 +12,12 @@ function Repo({repo, removeRepo, getLatestRelease}) {
             >
                 {repo.name}
             </div>
-            <Close
-                className="close cursor"
-                onClick={removeRepo}
-            />
+            <div className="flex">
+                <Close
+                    className="close cursor"
+                    onClick={removeRepo}
+                />
+            </div>
         </div>
     );
 }

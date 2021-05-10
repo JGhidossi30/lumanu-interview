@@ -1,7 +1,7 @@
 import React from 'react';
+import Loader from '../../library/Loader';
 import Repo from '../../library/Repo';
 import Search from '../../library/Search';
-import Loader from '../../library/Loader';
 
 const App = ({releaseNotes, releaseLoading, removeRepo, repos}) => (
     <div className="app-container">
@@ -25,7 +25,9 @@ const App = ({releaseNotes, releaseLoading, removeRepo, repos}) => (
             {releaseLoading ?
                 <Loader/>
                 :
-                releaseNotes?.body
+                <div className="scroll">
+                    {releaseNotes?.body}
+                </div>
             }
         </div>
     </div>
