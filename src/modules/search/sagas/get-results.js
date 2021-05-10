@@ -4,13 +4,13 @@ import {getResultsFail, getResultsStart, getResultsSuccess} from '../actions/get
 import types from '../types';
 
 export const httpCall = ({query}) => {
-    const octokit = new Octokit({auth: process.env.AUTHORIZATION});
+    const octokit = new Octokit({auth: process.env.REACT_APP_AUTHORIZATION});
     return octokit.request('GET /search/repositories', {
         q: query,
         per_page: 20,
     }).then((response) => {
         return response.data.items;
-    }).catch((err) => console.log(`Error retrieving repos for '${query}'\n\n${err}`));
+    });
 }
 
 function* getResults({query}) {

@@ -1,8 +1,9 @@
 import React from 'react';
 import Repo from '../../library/Repo';
 import Search from '../../library/Search';
+import Loader from '../../library/Loader';
 
-const App = ({releaseNotes, removeRepo, repos}) => (
+const App = ({releaseNotes, releaseLoading, removeRepo, repos}) => (
     <div className="app-container">
         <div className="content-container">
             <Search/>
@@ -19,9 +20,13 @@ const App = ({releaseNotes, removeRepo, repos}) => (
         </div>
         <div className="content-container">
             <h1 className="gradient">
-                Description
+                Release Notes
             </h1>
-            {releaseNotes}
+            {releaseLoading ?
+                <Loader/>
+                :
+                releaseNotes?.body
+            }
         </div>
     </div>
 );

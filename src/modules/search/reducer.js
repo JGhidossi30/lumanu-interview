@@ -1,11 +1,13 @@
+import getLatestReleaseReducer from './reducer/get-latest-release';
 import getResultsReducer from './reducer/get-results';
 import types from './types';
 
 const initialState = {
     loaders: {
+        releaseLoading: false,
         queryLoading: false,
     },
-    releaseNotes: '',
+    releaseNotes: null,
     repos: JSON.parse(localStorage.getItem('repos')) ?? [],
     results: [],
     query: '',
@@ -35,6 +37,7 @@ const reducer = {
     [types.ADD_REPO]: addRepo,
     [types.REMOVE_REPO]: removeRepo,
     [types.SET_QUERY]: setQuery,
+    ...getLatestReleaseReducer,
     ...getResultsReducer,
 };
 

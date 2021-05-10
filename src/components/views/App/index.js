@@ -6,6 +6,7 @@ import AppComponent from './component';
 
 const mapStateToProps = ({search}) => ({
     releaseNotes: search.releaseNotes,
+    releaseLoading: search.loaders.releaseLoading,
     repos: search.repos,
 });
 

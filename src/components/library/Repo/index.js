@@ -1,23 +1,18 @@
-import React from 'react';
-import {ReactComponent as Close} from '../../../assets/img/close.svg'
+import {connect} from "react-redux";
+import {push} from 'react-router-redux';
+import {bindActionCreators} from 'redux';
+import {getLatestRelease} from '../../../modules/search/actions/get-latest-release';
+import RepoComponent from './component';
 
-function Repo({repo, setDescription, removeRepo}) {
-    return (
-        <div
-            className="repo"
-        >
-            <div
-                className="title cursor"
-                onClick={() => setDescription(repo.description)}
-            >
-                {repo.name}
-            </div>
-            <Close
-                className="close cursor"
-                onClick={removeRepo}
-            />
-        </div>
-    );
-}
+const mapStateToProps = ({search}) => ({
 
-export default Repo;
+});
+
+const mapDispatchToProps = (dispatch) => (
+    bindActionCreators({
+        push,
+        getLatestRelease,
+    }, dispatch)
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(RepoComponent);
