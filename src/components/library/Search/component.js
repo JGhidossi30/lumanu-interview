@@ -22,6 +22,7 @@ function Search({addRepo, isLoading, repos, results, getLatestRelease, getResult
             <button
                 className="search-button"
                 onClick={() => getResults(query)}
+                onFocus={() => setFocused(true)}
             >
                 search
             </button>
