@@ -10,7 +10,17 @@ export const removeRepo = (index) => ({
     index,
 });
 
+export const setReleaseNotes = (index) => ({
+    type: types.SET_RELEASE_NOTES,
+    index,
+});
+
 export const setQuery = (query) => ({
     type: types.SET_QUERY,
     query,
+});
+
+export const updateReleaseNotes = (index) => ({
+    type: types.UPDATE_RELEASE_NOTES,
+    index,
 });

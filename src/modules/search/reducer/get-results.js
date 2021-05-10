@@ -10,7 +10,7 @@ export const getResultsStart = (state) => ({
 
 export const getResultsSuccess = (state, {results}) => {
     const newResults = results.filter((result) => {
-        return !state.repos.some((repo) => repo.id === result.id);
+        return !state.repos.some((repo) => repo.data.id === result.id);
     });
     return ({
         ...state,

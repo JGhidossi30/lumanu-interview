@@ -8,14 +8,17 @@ export const getLatestReleaseStart = (state) => ({
     },
 });
 
-export const getLatestReleaseSuccess = (state, {releaseNotes}) => ({
-    ...state,
-    loaders: {
-        ...state.loaders,
-        releaseLoading: false,
-    },
-    releaseNotes,
-});
+export const getLatestReleaseSuccess = (state, {releaseNotes, index}) => {
+    state.repos[index].notes = releaseNotes;
+    localStorage.setItem('repos', JSON.stringify(state.repos));
+    return ({
+        ...state,
+        loaders: {
+            ...state.loaders,
+            releaseLoading: false,
+        },
+    });
+}
 
 export const getLatestReleaseFail = (state, {error}) => ({
     ...state,

@@ -2,11 +2,12 @@ import React, {useState} from 'react';
 import onClickOutside from 'react-onclickoutside'
 import Loader from '../Loader';
 
-function Search({addRepo, isLoading, repos, results, getResults, setQuery, query}) {
+function Search({addRepo, isLoading, repos, results, getLatestRelease, getResults, setQuery, query}) {
     const [focused, setFocused] = useState(false);
     Search.handleClickOutside = () => setFocused(false);
     const onSelect = (repo) => {
         addRepo(repo);
+        getLatestRelease(repo.owner.login, repo.name, repos.length);
         setFocused(false);
     }
     return (
@@ -29,8 +30,8 @@ function Search({addRepo, isLoading, repos, results, getResults, setQuery, query
                 {isLoading ?
                     <Loader/>
                     :
-                    results.filter(function (result) {
-                        return !repos.includes(result);
+                    results.filter((result) => {
+                        return !repos.some((repo) => repo.data.id === result.id);
                     }).map((result) =>
                         <div
                             className="option"
@@ -40,7 +41,6 @@ function Search({addRepo, isLoading, repos, results, getResults, setQuery, query
                             {result.name}
                         </div>
                     )
-
                 }
             </div>
             }

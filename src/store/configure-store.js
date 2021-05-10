@@ -4,6 +4,7 @@ import configureStoreBoilerplate from './configure-store-boilerplate';
 import searchReducer, {
     getLatestReleaseSaga,
     getResultsSaga,
+    refreshPageSaga,
 } from '../modules/search';
 
 export const configureStore = (history, initialState = {}) => configureStoreBoilerplate(
@@ -12,6 +13,7 @@ export const configureStore = (history, initialState = {}) => configureStoreBoil
     }, [
         call(getLatestReleaseSaga),
         call(getResultsSaga),
+        call(refreshPageSaga),
     ],
     history,
     initialState,

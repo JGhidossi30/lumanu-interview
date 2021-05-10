@@ -13,13 +13,13 @@ export const httpCall = ({owner, repo}) => {
     });
 }
 
-function* getLatestRelease({owner, repo}) {
+function* getLatestRelease({owner, repo, index}) {
     try {
         yield put(getLatestReleaseStart());
 
         let results = yield call(httpCall, {owner, repo});
 
-        yield put(getLatestReleaseSuccess(results));
+        yield put(getLatestReleaseSuccess(results, index));
     } catch (err) {
         yield put(getLatestReleaseFail(err));
     }

@@ -1,18 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {ReactComponent as Close} from '../../../assets/img/close.svg'
 
-function Repo({repo, removeRepo, getLatestRelease}) {
+function Repo({newReleases, repo, removeRepo, setReleaseNotes, updateReleaseNotes, index}) {
+    const [newRelease, setNewRelease] = useState('New Release');
     return (
         <div
             className="repo"
         >
             <div
                 className="title cursor"
-                onClick={() => getLatestRelease({owner: repo.owner.login, repo: repo.name})}
+                onClick={() => setReleaseNotes(index)}
             >
-                {repo.name}
+                {repo.data.name}
             </div>
-            <div className="flex">
+            <div className="flex align-items-center">
+                {newReleases[index] !== undefined &&
+                <div className="new"
+                     onClick={() => updateReleaseNotes(index)}
+                     onMouseEnter={() => setNewRelease(newReleases[index].tag_name)}
+                     onMouseLeave={() => setNewRelease('New Release!')}
+                >
+                    {newRelease}
+                </div>
+                }
+                {repo.notes &&
+                <div className="version">
+                    {repo.notes?.tag_name}
+                </div>
+                }
                 <Close
                     className="close cursor"
                     onClick={removeRepo}

@@ -4,15 +4,17 @@ export const getLatestReleaseStart = () => ({
     type: types.GET_LATEST_RELEASE_START,
 });
 
-export const getLatestRelease = ({owner, repo}) => ({
+export const getLatestRelease = (owner, repo, index) => ({
     type: types.GET_LATEST_RELEASE,
     owner,
     repo,
+    index,
 });
 
-export const getLatestReleaseSuccess = (releaseNotes) => ({
+export const getLatestReleaseSuccess = (releaseNotes, index) => ({
     type: types.GET_LATEST_RELEASE_SUCCESS,
     releaseNotes,
+    index,
 });
 
 export const getLatestReleaseFail = (error) => ({

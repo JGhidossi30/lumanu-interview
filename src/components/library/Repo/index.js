@@ -1,17 +1,18 @@
 import {connect} from "react-redux";
 import {push} from 'react-router-redux';
 import {bindActionCreators} from 'redux';
-import {getLatestRelease} from '../../../modules/search/actions/get-latest-release';
+import {setReleaseNotes, updateReleaseNotes} from '../../../modules/search/actions';
 import RepoComponent from './component';
 
 const mapStateToProps = ({search}) => ({
-
+    newReleases: search.newReleases,
 });
 
 const mapDispatchToProps = (dispatch) => (
     bindActionCreators({
         push,
-        getLatestRelease,
+        setReleaseNotes,
+        updateReleaseNotes,
     }, dispatch)
 );
 
